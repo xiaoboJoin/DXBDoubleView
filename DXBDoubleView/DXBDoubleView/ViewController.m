@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "DetailViewController.h"
+#import "ContentViewController.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+
+    [self addChildViewController:detailViewController];
+    [self.view addSubview:detailViewController.view];
+    [detailViewController.view setBounds:[self.view bounds]];
+    
+    
+    ContentViewController *mainViewController = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+    [self addChildViewController:mainViewController];
+    [self.view addSubview:mainViewController.view];
+    [mainViewController.view setBounds:self.view.bounds];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
